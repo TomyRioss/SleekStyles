@@ -1,0 +1,32 @@
+.navBar {
+  color: black;
+  background: linear-gradient(to left, rgb(0 0 0 / 0.3), rgba(95, 92, 93, 0.4));
+  box-shadow: inset 5px 5px 5px rgb(240, 236, 236);
+  margin: none;
+}
+
+.links {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  color: black;
+}
+
+.links:hover {
+  transition: 0.2s;
+  color: aqua;
+}
+
+nav {
+  text-decoration: none;
+  color: black;
+}
+
+.navLinks {
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.6rem;
+}
