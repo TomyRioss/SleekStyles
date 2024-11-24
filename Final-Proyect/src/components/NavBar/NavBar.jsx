@@ -11,11 +11,7 @@ const NavBar = () => {
             Inicio
           </NavLink>
         </li>
-        <li>
-          <NavLink className={styles.links} to="/products">
-            Productos
-          </NavLink>
-        </li>
+
         <li>
           <NavLink className={styles.links} to="/login">
             Iniciar Sesión
