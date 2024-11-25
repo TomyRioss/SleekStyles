@@ -21,32 +21,42 @@ const Login = () => {
       setMessage('¡Ya has iniciado sesión!');
       alert('¡Ya has iniciado sesión!');
     } catch (error) {
-      setMessage('Credenciales inválidas: ' + error.message);
-      alert('Credenciales inválidas: ' + error.message);
+      console.log(error);
+      setMessage('Credenciales inválidas');
+      alert('Credenciales inválidas');
     }
   };
 
   return (
-    <div>
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Correo electrónico"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Iniciar sesión</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Correo electrónico"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Contraseña"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <button
+            type="submit"
+            className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+          >
+            Iniciar sesión
+          </button>
+        </form>
+        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+      </div>
     </div>
   );
 };

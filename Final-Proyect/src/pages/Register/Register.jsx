@@ -32,46 +32,58 @@ const Register = () => {
       setMessage('¡Te has registrado correctamente!');
       alert('¡Te has registrado correctamente!');
     } catch (error) {
+      console.log('Error al registrarse:', error);
       setMessage('Error al registrarse: ' + error.message);
       alert('Error al registrarse: ' + error.message);
     }
   };
 
   return (
-    <div>
-      <h2>Registro</h2>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="Nombre"
-          required
-        />
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Apellido"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Correo electrónico"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Registrar</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Registro</h2>
+        <form onSubmit={handleRegister}>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Nombre"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Apellido"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Correo electrónico"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Contraseña"
+            required
+            className="w-full p-3 mb-4 border rounded-lg"
+          />
+          <button
+            type="submit"
+            className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+          >
+            Registrar
+          </button>
+        </form>
+        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+      </div>
     </div>
   );
 };
