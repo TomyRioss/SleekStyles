@@ -9,14 +9,10 @@ import {
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
-import { db } from './config/firebaseConfig';
 
 function App() {
   return (
     <>
-      {console.log('ESTA ES UNA PRUBEA DE LA DATABASE:', db)}
-      {console.log('PRUEBA DE COLECCION:', import.meta.env)}
-
       <Router>
         <NavBar />
         <Routes>

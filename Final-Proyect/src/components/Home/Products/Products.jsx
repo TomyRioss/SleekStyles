@@ -3,7 +3,7 @@ import { db } from '../../../config/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 
 const Products = () => {
-  const [products, setProducts] = useState([]); // Estado inicial como array
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -21,7 +21,7 @@ const Products = () => {
 
         console.log('Products List:', productsList);
 
-        setProducts(productsList); // Actualizar el estado con la lista de productos
+        setProducts(productsList);
         console.log('Fetch exitoso', productsList);
       } catch (error) {
         console.log('Error fetching products', error);
