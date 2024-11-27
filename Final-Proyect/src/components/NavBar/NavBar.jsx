@@ -1,24 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './NavBar.module.css';
 
 const NavBar = () => {
   return (
-    <nav className={styles.navBar}>
-      <ul className={styles.navLinks}>
+    <nav className="bg-dark-900 p-4">
+      <ul className="flex space-x-4">
         <li>
-          <NavLink className={styles.links} to="/">
+          <NavLink to="/" className="text-text hover:text-primary">
             Inicio
           </NavLink>
         </li>
-
         <li>
-          <NavLink className={styles.links} to="/login">
+          <NavLink to="/login" className="text-text hover:text-primary">
             Iniciar Sesión
           </NavLink>
         </li>
         <li>
-          <NavLink className={styles.links} to="/register">
+          <NavLink to="/register" className="text-text hover:text-primary">
             Registrarse
           </NavLink>
         </li>

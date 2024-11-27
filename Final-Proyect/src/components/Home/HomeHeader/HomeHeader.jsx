@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './HomeHeader.module.css';
 
 const HomeHeader = () => {
+  // COMPONENTE DEL TITULO en HOME
   return (
     <header>
       <h1>Welcome Home!</h1>

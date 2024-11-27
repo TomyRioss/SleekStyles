@@ -5,10 +5,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  // Creamos estados para almacenar los distintos datos.
 
   const handleLogin = async (e) => {
     e.preventDefault();
     const auth = getAuth();
+    // Inicializamos auth y prevenimos que el formulario recargue la pagina al dar submit.
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -18,12 +20,11 @@ const Login = () => {
       );
       const user = userCredential.user;
 
-      setMessage('¡Ya has iniciado sesión!');
-      alert('¡Ya has iniciado sesión!');
+      // Obtiene el usuario y sus datos.
+      setMessage('¡Has iniciado sesión!');
     } catch (error) {
       console.log(error);
       setMessage('Credenciales inválidas');
-      alert('Credenciales inválidas');
     }
   };
 
@@ -55,7 +56,9 @@ const Login = () => {
             Iniciar sesión
           </button>
         </form>
-        {message && <p className="mt-4 text-center text-red-500">{message}</p>}
+        {message && (
+          <p className="mt-4 text-center text-green-500">{message}</p>
+        )}
       </div>
     </div>
   );
