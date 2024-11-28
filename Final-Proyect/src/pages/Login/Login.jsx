@@ -4,7 +4,8 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
+  const [isValid, setValid] = useState(null);
   // Creamos estados para almacenar los distintos datos.
 
   const handleLogin = async (e) => {
@@ -21,10 +22,10 @@ const Login = () => {
       const user = userCredential.user;
 
       // Obtiene el usuario y sus datos.
-      setMessage('¡Has iniciado sesión!');
+      setValid(true);
     } catch (error) {
-      console.log(error);
-      setMessage('Credenciales inválidas');
+      setValid(false);
+      console.log('Ocurrió un error:', error);
     }
   };
 
@@ -56,9 +57,16 @@ const Login = () => {
             Iniciar sesión
           </button>
         </form>
-        {message && (
-          <p className="mt-4 text-center text-green-500">{message}</p>
-        )}
+        {isValid !== null &&
+          (isValid === true ? (
+            <p className="mt-2 text-center text-green-500">
+              ¡Has iniciado sesión!
+            </p>
+          ) : (
+            <p className="mt-2 text-center text-red-500">
+              Credenciales inválidas.
+            </p>
+          ))}
       </div>
     </div>
   );
