@@ -12,11 +12,56 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // Se crean estados simples para establecer datos.
   const [message, setMessage] = useState({ text: '', color: '' });
+  // Se crea un estado que será lo que incluya el mensaje de error.
+
+  const allowedDomains = [
+    '@gmail.com',
+    '@yahoo.com',
+    '@hotmail.com',
+    '@outlook.com',
+    '@aol.com',
+    '@icloud.com',
+    '@mail.com',
+    '@protonmail.com',
+    '@zoho.com',
+    '@yandex.com',
+    '@gmx.com',
+    '@me.com',
+    '@mac.com',
+    '@live.com',
+    '@msn.com',
+    '@comcast.net',
+    '@verizon.net',
+    '@att.net',
+    '@sbcglobal.net',
+    '@bellsouth.net',
+    '@earthlink.net',
+    '@cox.net',
+    '@charter.net',
+  ];
+
+  const getEmailProvider = (email) => {
+    const domain = email.substring(email.lastIndexOf('@'));
+    return domain;
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
     const auth = getAuth();
+
+    // Se inicializa auth de firebase y se previene el comportamiento predeterminado de submit.
+
+    const emailDomain = getEmailProvider(email);
+
+    if (!allowedDomains.includes(emailDomain)) {
+      setMessage({
+        text: 'Dominio de email no permitido.',
+        color: 'text-red-500',
+      });
+      return;
+    }
 
     if (password !== confirmPassword) {
       setMessage({
@@ -33,6 +78,7 @@ const Register = () => {
         password
       );
       const user = userCredential.user;
+      //Se crea el user en la auth db de firebase.
 
       await setDoc(doc(collection(db, 'users'), user.uid), {
         firstName,
@@ -40,6 +86,7 @@ const Register = () => {
         email: user.email,
         createdAt: new Date(),
       });
+      // también en una colección de firestore.s
 
       setMessage({
         text: '¡Registrado exitosamente!',
@@ -107,11 +154,13 @@ const Register = () => {
               required
               className="w-full p-3 border rounded-lg pr-10"
             />
+            {/* Contraseña, sí se toca el ojo, este se cierra y cambia el tipo a texto. */}
             <button
               type="button"
               className="absolute inset-y-0 right-0 flex items-center pr-3"
               onClick={() => setShowPassword(!showPassword)}
             >
+              {/** Boton para cambiar el tipo al contrario de showPassword cada vez que se aprieta el ojo. */}
               {showPassword ? (
                 <EyeSlashIcon className="h-5 w-5 text-gray-500" />
               ) : (
@@ -139,6 +188,7 @@ const Register = () => {
                 <EyeIcon className="h-5 w-5 text-gray-500" />
               )}
             </button>
+            {/** Exactamente mismna lógica. */}
           </div>
           <button
             type="submit"
