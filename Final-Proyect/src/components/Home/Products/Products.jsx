@@ -32,8 +32,10 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      {}
-      <h1 className="text-3xl font-bold text-center mb-6">Products</h1>
+      <div className="flex-col justify-center text-center items-center mb-5 ">
+        <h1 className="text-3xl font-medium  mb-6">☀ ¡Llegó el verano!☀</h1>
+        <p> Junto a precios imeperdibles</p>
+      </div>
       {products.length === 0 ? (
         <p className="text-center">Obteniendo productos...</p>
       ) : (
