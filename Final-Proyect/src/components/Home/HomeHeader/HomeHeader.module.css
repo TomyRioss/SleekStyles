@@ -1,8 +1,11 @@
-header {
-  padding: 2rem;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
+.slider {
   display: flex;
-  flex-direction: column;
+  transition: transform 1s ease-in-out;
+}
+
+.sliderItem {
+  flex: 0 0 100%;
+  height: 77vh;
+  background-size: cover;
+  background-position: center;
 }

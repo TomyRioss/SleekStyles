@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['Roboto Serif', 'serif'],
+      },
       colors: {
         dark: {
           800: '#2c3e50',

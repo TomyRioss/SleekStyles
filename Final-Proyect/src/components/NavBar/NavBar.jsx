@@ -11,9 +11,11 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-dark-900 p-4 flex justify-between items-center">
+    <nav className=" p-4 flex justify-between items-center">
       <NavLink to="/" className="text-text hover:text-primary">
-        <h2 className="text-gray-50 flex-1 text-3xl ml-5">SleekStyles</h2>
+        <h2 className="text-black flex-1 text-3xl ml-5 font-serif drop-shadow-md ">
+          SleekStyles
+        </h2>
       </NavLink>
       <div className="relative mr-8  ">
         <button
@@ -21,9 +23,9 @@ const NavBar = () => {
           className="text-gray-50 focus:outline-none"
         >
           {isOpen ? (
-            <SolidUserIcon className="h-8 w-8 " />
+            <SolidUserIcon className="h-8 w-8 text-black " />
           ) : (
-            <UserIcon className="h-8 w-8 " />
+            <UserIcon className="h-8 w-8 text-black" />
           )}
         </button>
         {isOpen && (
