@@ -1,13 +1,29 @@
-## Trabajo Final UTN
+## SleekStyles Ecommerce
 
-# Para iniciar el proyecto clonar el repositorio en una carpeta.
+ Este es un proyecto hecho inicialmente hecho cómo proyecto final del curso "Desarrollo React JS" el cuál he retocado y púlido con muchas nuevas funcionalidades, estilos y lógica.
 
-# - Moverse a la carpeta /Final-Proyect
+ El proyecto cuenta con el uso de varias herramientas, las principales son: 
+ - Firebase para guardar los usuarios, manejar el inicio de sesión y los productos temporalmente.
+ - React con el cuál se maneja la lógica y toda la base de la aplicación.
+ - TailwindCSS que maneja el CSS de manera que sea más rápida la programación de los estilos.
+ - ModuleCSS (Aunque no sea una tecnología cómo tal), para poder estilizar componentes que requieren CSS m+as especifico.
 
-# - Instalar las dependencias con npm install
+## Instrucciones para usar la aplicación
 
-# - correr el proyecto con npm run dev
+Para usarla mediante el repositorio se puede clonar en una carpeta vacía, posteriormente colocar los comandos:
+- cd FinalProyect/
+- npm install
+- npm run dev
 
-# O cómo opción alternativa, entrar al link de la aplicación desplegada. https://utn-ecommerce.vercel.app/
+Y debería dar un link local para acceder sin problemas.
 
-## Hacer saber en caso de cualquier incoveniente.
+## Deploy
+
+El deploy de la aplicación esta hecho usando vercel, con el siguiente link se puede acceder:
+https://sleekstyles.vercel.app/
+
+## Próximos cambios
+- Aumentar la cantidad de productos.
+- Crear páginas para los catalogos.
+- Crear una página para cada card de productos.
+- Carrito de compras para que el inicio de sesión tenga una funcionalidad.
